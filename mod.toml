@@ -5,27 +5,28 @@
 
 # Unique ID of this mod. Pick something long enough that it'll never be the same as any other mod.
 # The name displayed in the mod management menu is separate from this so this doesn't need to be human readable.
-id = "mm_recomp_mod_template"
+id = "yazmt_z64_laxdungeonentrances"
 
 # Version of this mod.
-version = "1.0.0"
+version = "0.0.0"
 
 # The name that will show up for this mod in the mod menu. This should be human readable.
-display_name = "Always Spin Attack"
+display_name = "Lax Dungeon Entrances"
 
 # The description that will show up when this mod is displayed in the mod menu. This should be human readable.
-description =  """
-This is an example mod for Majora's Mask: Recompiled that can be used as a template for creating mods. \
-When this mod is enabled, you will always perform a quickspin when swinging your sword.
+description =  """\
+This is a mod for Majora's Mask: Recompiled that relaxes the restrictions on accessing certain dungeons.
 
-For more details, see https://github.com/Zelda64Recomp/MMRecompModTemplate."""
+The requirement can be relaxed to form only, song only, either, or neither.
+
+See configuration for more details."""
 
 # A short description that will show up in this mod's entry in the mod list. This should be human readable and kept short
 # to prevent it from being cut off due to the limited space.
-short_description = "Always perform a quickspin when swinging your sword."
+short_description = "Relax dungeon entrance requirements."
 
 # Authors of this mod.
-authors = [ "Your name here" ]
+authors = [ "Neirn" ]
 
 # ID of the target recomp game.
 game_id = "mm"
@@ -59,7 +60,7 @@ native_libraries = [
 elf_path = "build/mod.elf"
 
 # Output mod filename.
-mod_filename = "mm_recomp_mod_template"
+mod_filename = "yazmt_z64_laxdungeonentrances"
 
 # Reference symbol files.
 func_reference_syms_file = "Zelda64RecompSyms/mm.us.rev1.syms.toml"
@@ -69,28 +70,22 @@ data_reference_syms_files = [ "Zelda64RecompSyms/mm.us.rev1.datasyms.toml", "Zel
 additional_files = [ ]
 
 [[manifest.config_options]]
-id = "enum_option"
-name = "Enum Option"
-description = "Test enum config option"
+id = "entrance_requirements"
+name = "Entrance Requirements"
+description = """\
+Set requirements to activate temple entrance cutscenes.
+
+Form: Requires you to put away your instrument to open the temple while in the right form.
+
+Song: Requires you to play the temple-relevant song as any form on the platform to open the temple.
+
+Both: Vanilla behavior, where you need to be in the right form form and play the song to open the entrance.
+
+Either: You can fulfill either the Form or Song option requirements.
+
+Neither: You can put away your instrument as any form to open the temple.
+
+DEFAULT: Song"""
 type = "Enum"
-options = [ "First", "Second" ]
-default = "First"
-
-[[manifest.config_options]]
-id = "number_option"
-name = "Number Option"
-description = "Test number config option."
-type = "Number"
-min = 0
-max = 10
-step = 0.1
-precision = 1
-percent = false
-default = 1
-
-[[manifest.config_options]]
-id = "string_option"
-name = "String Option"
-description = "Test string config option."
-type = "String"
-default = "Lorem Ipsum"
+options = [ "Form", "Song", "Both", "Either", "Neither" ]
+default = "Song"
