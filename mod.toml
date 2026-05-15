@@ -75,11 +75,11 @@ name = "Entrance Requirements"
 description = """\
 Set requirements to activate temple entrance cutscenes.
 
+Vanilla: Vanilla behavior, where you need to be in the right form form and play the song to open the entrance.
+
 Form: Requires you to put away your instrument to open the temple while in the right form.
 
 Song: Requires you to play the temple-relevant song as any form on the platform to open the temple.
-
-Both: Vanilla behavior, where you need to be in the right form form and play the song to open the entrance.
 
 Either: You can fulfill either the Form or Song option requirements.
 
@@ -87,5 +87,5 @@ Neither: You can put away your instrument as any form to open the temple.
 
 DEFAULT: Song"""
 type = "Enum"
-options = [ "Form", "Song", "Both", "Either", "Neither" ]
+options = [ "Vanilla", "Form", "Song", "Either", "Neither" ]
 default = "Song"

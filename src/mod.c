@@ -7,9 +7,9 @@
 #include "overlays/actors/ovl_Dm_Char08/z_dm_char08.h"
 
 typedef enum EntranceRequirementOption {
+    ENTRANCE_REQ_VANILLA,
     ENTRANCE_REQ_FORM_ONLY,
     ENTRANCE_REQ_SONG_ONLY,
-    ENTRANCE_REQ_FORM_AND_SONG,
     ENTRANCE_REQ_FORM_OR_SONG,
     ENTRANCE_REQ_NONE,
 } EntranceRequirementOption;
@@ -29,9 +29,6 @@ void adjustEntranceRequirements(PlayState *play, PlayerTransformation requiredFo
             *checkedTransformation = player->transformation;
             break;
 
-        case ENTRANCE_REQ_FORM_AND_SONG:
-            break;
-
         case ENTRANCE_REQ_FORM_OR_SONG:
             *checkedTransformation = player->transformation;
 
@@ -47,6 +44,8 @@ void adjustEntranceRequirements(PlayState *play, PlayerTransformation requiredFo
             *checkedLastPlayedSong = play->msgCtx.lastPlayedSong;
             break;
 
+        case ENTRANCE_REQ_VANILLA:
+            FALLTHROUGH;
         default:
             break;
     }
